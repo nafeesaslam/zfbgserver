@@ -1,0 +1,36 @@
+{
+  "name": "zingforce-battlegrounds",
+  "version": "0.0.1",
+  "description": "zingforce battle royale",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha test",
+    "dev": "node index.js --watch",
+    "build": "node build.js"
+  },
+  "keywords": [
+    "zingforcegames",
+    "server"
+  ],
+  "engines": {
+    "node": "20.*"
+  },
+  "dependencies": {
+    "archiver": "^5.1.0",
+    "body-parser": "^1.19.0",
+    "chalk": "^4.1.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "sequelize": "^6.3.5",
+    "socket.io": "^3.0.4",
+    "sqlite3": "^5.0.0",
+    "three": "^0.179.1"
+  },
+  "devDependencies": {
+    "chokidar": "^3.4.3",
+    "google-closure-compiler": "^20201207.0.0",
+    "mocha": "^8.2.1"
+  }
+}
