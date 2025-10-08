@@ -17,12 +17,12 @@ const runMode = process.env.NODE_ENV || 'development'
 const isDevelopment = !!(runMode === 'development')
 const isProduction = !!(runMode === 'production')
 const isTest = !!(runMode === 'test')
-const build = require('./build');
 
 let packageSize = 0;
 
 function watch() {
     if (process.argv.includes('--watch')) {
+        const build = require('./build');
         build.watch();
     }
 }
