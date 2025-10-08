@@ -1,0 +1,2 @@
+# zfbgserver
+Zingforce Battlegrounds server
