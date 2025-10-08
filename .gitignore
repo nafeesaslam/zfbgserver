@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build files
+dist.zip
+public.zip
+
+# Database
+*.sqlite
+
+# OS files
+.DS_Store
+
+# Environment variables
+.env
+.env.local
