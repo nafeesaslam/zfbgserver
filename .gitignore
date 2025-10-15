@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+ionic_angular_simple/
 
 # Build files
 dist.zip
