@@ -56,7 +56,7 @@ function drawHud() {
             drawGameStats();
             drawAmmo();
             drawHealthbar();
-            drawMinimap();
+            // drawMinimap();
             drawControlTips();
 
             if (!ServerGameState.isStarted(gameState)) {
@@ -363,10 +363,10 @@ function drawHealthbar() {
         return;
     }
 
-    const x = centerX - 200;
+    const x = centerX - 150;
     const y = height - 50;
-    const w = 400;
-    const h = 25;
+    const w = 300;
+    const h = 20;
 
     const f = player.health / 100;
     const w2 = f * w;
@@ -392,9 +392,29 @@ function drawHealthbar() {
 
 function drawMinimap() {
     const mapSize = (overlayCanvas.width * 0.15) | 0;
-    const mapX = (overlayCanvas.width - mapSize - 20) | 0;
-    const mapY = (overlayCanvas.height - mapSize - 20) | 0;
+    const mapX = 20; // Left position
+    const mapY = 20; // Top position
+    
+    // Save the current context state
+    overlayCtx.save();
+    
+    // Create a circular clipping path for the minimap
+    overlayCtx.beginPath();
+    overlayCtx.arc(mapX + mapSize / 2, mapY + mapSize / 2, mapSize / 2, 0, 2 * Math.PI);
+    overlayCtx.clip();
+    
+    // Draw the map with the circular clipping
     drawMap(mapX, mapY, mapSize, false);
+    
+    // Restore the context state (removes clipping)
+    overlayCtx.restore();
+    
+    // Draw a circular border around the minimap
+    overlayCtx.strokeStyle = COLOR_WHITE;
+    overlayCtx.lineWidth = 2;
+    overlayCtx.beginPath();
+    overlayCtx.arc(mapX + mapSize / 2, mapY + mapSize / 2, mapSize / 2, 0, 2 * Math.PI);
+    overlayCtx.stroke();
 
     if (gameState && ServerGameState.isStarted(gameState)) {
         const clockX = mapX;
@@ -409,10 +429,10 @@ function drawMinimap() {
 function drawControlTips() {
     setTextAlign(ALIGN_LEFT);
     setFontSize(11);
-    drawShadowText('WASD - Move', 20, height - 140);
-    drawShadowText('Left click - Shoot', 20, height - 120);
-    drawShadowText('Right click - Zoom', 20, height - 100);
-    drawShadowText('M - Map', 20, height - 80);
+    // drawShadowText('WASD - Move', 20, height - 140);
+    // drawShadowText('Left click - Shoot', 20, height - 120);
+    // drawShadowText('Right click - Zoom', 20, height - 100);
+    // drawShadowText('M - Map', 20, height - 80);
 }
 
 function drawPreGameClock() {

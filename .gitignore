@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
 ionic_angular_simple/
+zfmobile/
 
 # Build files
 dist.zip
